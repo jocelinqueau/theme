@@ -1,4 +1,5 @@
 import { defineConfig } from 'vite'
+import { resolve } from 'path'
 import react from '@vitejs/plugin-react-swc'
 import mdx from '@mdx-js/rollup'
 
@@ -7,5 +8,11 @@ export default defineConfig({
   plugins: [
     mdx(),
     react()
-  ]
+  ],
+  resolve: {
+    alias: {
+      '@components': resolve('src/components'),
+      '@src': resolve('src'),
+    }
+  },
 })
